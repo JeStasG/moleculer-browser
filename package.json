@@ -6,6 +6,14 @@
   "files": [
     "dist"
   ],
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*",
+      "dist/*"
+    ],
+    "delay": "2500"
+  },
   "scripts": {
     "clean": "del-cli dist",
     "build": "rollup -c",
@@ -16,7 +24,7 @@
     "lint": "eslint --ignore-path .gitignore \"**/*.js\"",
     "version": "chan release ${npm_package_version} && git add .",
     "prepublishOnly": "npm test && npm run build",
-    "example": "parcel example/index.html --no-cache -d example/dist"
+    "dev": "rollup -c && parcel example/index.html --no-cache -d example/dist"
   },
   "dependencies": {
     "browser-process-hrtime": "^1.0.0",
@@ -27,7 +35,9 @@
     "moleculer": "^0.13.9",
     "process": "^0.11.10",
     "raf-perf": "^1.2.0",
-    "timers-browserify": "^2.0.10"
+    "rhea-promise": "^1.0.0",
+    "timers-browserify": "^2.0.10",
+    "websocket-nats": "^0.3.3"
   },
   "devDependencies": {
     "@geut/chan": "^2.1.1",

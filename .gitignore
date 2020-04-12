@@ -90,3 +90,5 @@ typings/
 dist/
 
 stats.html
+yarn.lock
+.idea
